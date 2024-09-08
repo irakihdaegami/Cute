@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Cuteness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday Cuteness 🎉</h1>
+        <!-- Cute picture below the header -->
+        <img src="cute_picture.gif" alt="Cute Picture" class="header-photo">
+
+        <p class="intro">A cake, a gift and some flowers for my cutie!</p>
+
+        <!-- Section for emojis -->
+        <div class="emoji-section">
+            <span class="emoji" onclick="revealMessage('message1')">🎂</span>
+            <span class="emoji" onclick="revealMessage('message2')">🎁</span>
+            <span class="emoji" onclick="revealMessage('message3')">🌹</span>
+        </div>
+
+        <!-- Hidden messages -->
+        <div id="message1" class="hidden-message">
+            <p>You are sweeter than any cake cutudu. Wishing you a very very sweet birthday. More sweeter than this cake 🍰</p>
+            <!-- <img src="cake.jpg" alt="Birthday Cake" class="photo"> -->
+        </div>
+        <div id="message2" class="hidden-message">
+            <p>Saachikai ma kei gift dina napaye pani here's a gift of love and happiness for you! 🎁. Remember that Imu loves you the most.</p>
+            <!-- <img src="gift.jpg" alt="Gift" class="photo"> -->
+        </div>
+        <div id="message3" class="hidden-message">
+            <p>You are sooooo much more beautiful as this rose! 🌹. You are my sunflower.</p>
+            <!-- <img src="rose.jpg" alt="Rose" class="photo"> -->
+        </div>
+
+        <!-- Section for buttons -->
+        <div class="button-section">
+            <button onclick="revealMessage('message4')">Click me!</button>
+            <button onclick="revealMessage('message5')">Another surprise!</button>
+        </div>
+
+        <!-- Hidden button messages -->
+        <div id="message4" class="hidden-message">
+            <p>Happy birthday sweety pie. 🌟</p>
+            <img src="light.jpg" alt="Light" class="photo">
+        </div>
+        <div id="message5" class="hidden-message">
+            <p>Forever grateful to have you! 💕</p>
+            <img src="heart.jpg" alt="Heart" class="photo">
+        </div>
+    </div>
+
+    <!-- Heart pop container -->
+    <div id="heart-container"></div>
+
+    <script>
+        // JavaScript to reveal hidden messages
+        function revealMessage(id) {
+            const message = document.getElementById(id);
+            message.classList.toggle('show');
+        }
+    
+        // Function to add random emojis to the page
+        function addRandomEmojis() {
+            const emojiArray = ['❤️', '🎂'];
+            const container = document.querySelector('.container');
+    
+            for (let i = 0; i < 20; i++) {
+                const emoji = document.createElement('span');
+                emoji.classList.add('random-emoji');
+                emoji.textContent = emojiArray[Math.floor(Math.random() * emojiArray.length)];
+    
+                // Set random positions
+                emoji.style.left = `${Math.random() * 90}%`;
+                emoji.style.top = `${Math.random() * 90}%`;
+    
+                container.appendChild(emoji);
+            }
+        }
+    
+        // Call the function to add emojis when the page loads
+        window.onload = addRandomEmojis;
+    </script>
+    
+</body>
+</html>
